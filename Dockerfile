@@ -21,4 +21,4 @@ RUN pip install --no-cache-dir --upgrade pip && \
 COPY . .
 
 # Start the application
-CMD ["gunicorn", "--worker-class=gevent", "--worker-connections=1000", "--workers=3", "app:app"]
+CMD ["gunicorn", "app:app", "--timeout", "3000"]
