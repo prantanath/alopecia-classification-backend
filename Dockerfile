@@ -20,5 +20,5 @@ RUN pip install --no-cache-dir --upgrade pip && \
 # Copy the rest of the application files
 COPY . .
 
-# Start the application
+# Start the application fix
 CMD ["gunicorn", "app:app", "--timeout", "3000"]
