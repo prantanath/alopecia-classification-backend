@@ -19,7 +19,7 @@ model = tf.keras.models.load_model("mobilenet.h5")
 # Load class names
 class_names = ['Alopecia_Areata','Alopecia_Totalis', 'Androgenetic_Alopecia']
 
-# Load OpenCV's pre-trained face detector
+# Load OpenCV's pre-trained face detector 
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
 
 def calculate_entropy(image):
