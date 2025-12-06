@@ -1,16 +1,10 @@
 # Use a lightweight base image
-FROM python:3.10-slim-bookworm
+FROM python:3.10-slim
 
-ARG DEBIAN_FRONTEND=noninteractive
-
+# Install required system dependencies
 RUN apt-get update && apt-get install -y \
-    libgl1 \
+    libgl1-mesa-glx \
     libglib2.0-0 \
-    libsm6 \
-    libxext6 \
-    libxrender1 \
-    gcc \
-    g++ \
     && rm -rf /var/lib/apt/lists/*
 
 # Set the working directory
@@ -26,5 +20,5 @@ RUN pip install --no-cache-dir --upgrade pip && \
 # Copy the rest of the application files
 COPY . .
 
-# Start the application fix
+# Start the application
 CMD ["gunicorn", "app:app", "--timeout", "3000"]
